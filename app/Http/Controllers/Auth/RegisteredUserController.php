@@ -19,6 +19,7 @@ class RegisteredUserController extends Controller
     {
         $user = $userRepo->register($request->only(['name' , 'email' , 'password']));
         event(new Registered($user));
-        return \response()->json(['message' => 'success register user' , 'status' => 'success' ],200);
+        $token = $user->createToken('token-name', ['*'], now()->addWeek())->plainTextToken;
+        return \response()->json(['token' => $token , 'status' => 'success' ],200);
     }
 }
