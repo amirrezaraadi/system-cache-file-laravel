@@ -26,8 +26,11 @@ Route::prefix('dashboard')->name('dashboard')->group(function () {
 Route::prefix('auth')->name('auth')->group(function () {
    Route::post('register' , [\App\Http\Controllers\Auth\RegisteredUserController::class , 'store'])->name('register');
    Route::post('login' , [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store'])->name('login');
+    Route::middleware(['auth:sanctum'])
+        ->post('check_code' , [\App\Http\Controllers\Auth\RegisteredUserController::class , 'check'])
+        ->name('check');
 //   Route::post('register' , [\App\Http\Controllers\Auth\RegisteredUserController::class , 'store'])->name('register');
 });
 
 
-require __DIR__.'/auth.php';
+//require __DIR__.'/auth.php';

@@ -42,8 +42,8 @@ class ServiceUser
 
     public static function check($id, $code)
     {
+        if (!self::has($id))  return false;
         if (self::get($id) != $code) return false;
-
         self::delete($id);
         return  true;
     }
