@@ -1,0 +1,31 @@
+1- register
+       1-1 : send email
+       1-2 : event email
+           1-2-1 : listener
+           1-2-2 : notification
+
+2- login
+   2-1 : send email
+       2-2 : event email
+           2-2-1 : listener
+           2-2-2 : notification
+
+3- logout
+
+4- forget password
+   4-1 : send email
+       4-2 : event email
+           4-2-1 : listener
+           4-2-2 : notification
+
+4- verify email
+    4-1 : notification
+    4-2 : check code
+    4-3 : success
+
+5- verify phone
+    5-1 : notification
+    5-2 : check code
+    5-3 : success
+
+6- post

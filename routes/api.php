@@ -17,3 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('dashboard')->name('dashboard')->group(function () {
+//    Route::
+   Route::apiResource('posts' , \App\Http\Controllers\Panel\PostController::class);
+});
+
+Route::prefix('auth')->name('auth')->group(function () {
+   Route::post('register' , [\App\Http\Controllers\Auth\RegisteredUserController::class , 'store'])->name('register');
+   Route::post('login' , [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store'])->name('login');
+//   Route::post('register' , [\App\Http\Controllers\Auth\RegisteredUserController::class , 'store'])->name('register');
+});
+
+
+require __DIR__.'/auth.php';
