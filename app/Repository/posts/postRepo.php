@@ -16,7 +16,7 @@ class postRepo
             'slug' => $data['slug'],
             'image' => $data['image'],
             'content' => $data['content'],
-            'user_id' => $data['user_id'],
+            'user_id' => auth()->id(),
         ]) ;
     }
 
@@ -33,7 +33,7 @@ class postRepo
             'slug' => $data['slug'] ?? $post->slug,
             'image' => $data['image'] ?? $post->image,
             'content' => $data['content'] ?? $post->content,
-            'user_id' => $data['user_id'] ?? $post->user_id,
+            'user_id' => auth()->id(),
         ]) ;
     }
 
