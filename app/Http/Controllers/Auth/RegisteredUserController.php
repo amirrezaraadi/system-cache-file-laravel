@@ -29,7 +29,6 @@ class RegisteredUserController extends Controller
         $check = ServiceUser::check(auth()->id() , $request->code);
         if($check === false)
             return \response()->json(['message'=> 'data not found' , 'status' => 'error' ],401);
-
         return \response()->json(['message'=> 'welcome to system' , 'status' => 'success' ],200);
     }
 }
